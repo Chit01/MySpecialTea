@@ -16,15 +16,20 @@ public class LoginTest
 	public void launchGoogle()
 	{
 		driver = new ChromeDriver();
-		driver.get("https://www.google.com");
+		driver.get("https://www.selenium.dev");
+		driver.manage().window().maximize();
 	}
 
 	@Test
-	public void performSearch()
+	public void performSearch() throws InterruptedException
 	{
-		WebElement search = driver.findElement(By.xpath("//textarea[@title='Search']"));
-		search.sendKeys("Selenium");
-		search.sendKeys(Keys.ENTER);				
+		WebElement dwn = driver.findElement(By.xpath("//span[text()='Downloads']"));
+		Thread.sleep(1000);
+		dwn.click();
+		
+		Thread.sleep(2000);
+		//driver.findElement(By.xpath("//div[@class='e9Wekf oD6fhb']/div[1]/div/div")).click();
+		//Thread.sleep(2000);
 	}
 
 	@AfterSuite
